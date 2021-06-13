@@ -1,16 +1,28 @@
+@font-face {
+    font-family: 'RixVideoGame';
+    src: url(/fonts/RixVideoGame-Bold.woff) format('woff');
+}
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url(/fonts/DungGeunMo.woff) format('woff');
+}
+
 body {
     color: #fff;
     background-color: #1f1f1f;
 }
-.bg-img {
-    background-image: url(/nintendo.png);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100%;
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
+
 article {
     display: flex;
     flex-direction: column;
+    font-family: RixVideoGame;
 }
 .question {
     display: none;
@@ -19,122 +31,188 @@ article {
     display: none;
     align-items: center;
 }
-#img {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-}
-
-.btn:focus {
-    outline: none;
+.btn, .btn:focus{
     box-shadow: none;
 }
 
+
+/* start */
 .main-title {
-    font-size: 14px;
+    font-size: 24px;
     color: #7c7c7c;
+    text-shadow: 0 0 10px #777777;
 }
 .sub-title {
-    font-size: 24px;
-    font-weight: 100;
+    font-size: 38px;
     color: #ebebeb;
+    text-shadow: 0 0 10px #0000ff;
 }
-/* start */
-.btn-start {
-    font-size: 16px;
-    color: #ff9300;
+.btn-start, .btn-start:focus {
+    width: 165px;
+    height: 45px;
+    font-size: 24px;
+    color: #fff;
     background-color: #1f1f1f;
     border: #1f1f1f;
+    /* font-family: 'DungGeunMo'; */
+}
+.btn-start:hover {
+    background: transparent url(/img/pixel.png);
+    background-size: 180px;
+    animation: pixel-animate 0.8s steps(8) forwards;
+    color: #fff;
+}
+@keyframes pixel-animate
+{
+  0%
+  {
+    background-position-y: 0px;
+  }
+  100%
+  {
+    background-position-y: -480px;
+  }   
 }
 .start-cover {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
 /* question */
 .question-content {
-    font-size: 14px;
-    color: #ff9300;
+    font-size: 24px;
+    color: #00ff4c;
+    text-shadow: 0 0 1px rgb(0, 255, 179);
     margin: 0 auto;
 }
-.rectangle {
-    width: 288px;
-    height:8px;
-    background-color: #383a43;
+.answerbtn-box{
     margin: 0 auto;
-}
-.mid-rectangle {
-    width: 288px;
-    height: 1px;
-    background-color: #383a43;
-    margin: 0 auto;
+    display: flex;
 }
 .btn-answer, .btn-answer:focus {
     background-color: #363636;
-    border: #1f1f1f;
-    width: 288px;
+    width: 360px;
+    height: 150px;
+    max-width: 90%;
     margin: 0 auto;
-    font-size: 13px;
+    font-size: 18px;
     color: #fff;
-    outline: none;
-    box-shadow: none;
+    font-family: 'DungGeunMo';
 }
-/* .btn-answer:hover {
-    background-color: #ff9300;
-    border: #1f1f1f;
-    width: 288px;
-    margin: 0 auto;
-    font-size: 13px;
-    color: #fff;
-} */
+.btn-answer:hover {
+   border: .1px solid #fff;
+   background-color: #218fe7;
+   color: #fff;
+   box-shadow: 0 0 10px 3px #218fe7;
+}
 /* progress bar */
 .progress-bar {
-    background-color: #ff9300;
+    background: yellow;
+    overflow: visible;
+    position: relative;
+    align-items: flex-end;
+    border: 3px solid #666;
+    border-radius: 6px;
+}
+#pacman {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    right: -20px;
+    filter: drop-shadow(0 0 8px #ff0);
 }
 .progress {
-    background-color: #525764;
-    width: 500px;
+    background: url(/img/bob.png);
+    background-position-y: -8px;
+    background-repeat: repeat-x;
+    width: 1000px;
+    max-width: 80%;
     margin: 0 auto;
+    overflow: visible;
 }
+
+
+
 /* result */
 .result-message {
-    color: #ff9300;
+    color: #78e9fb;
+    text-shadow: 0 0 5px #00f;
     margin: 0 auto;
-    font-size: 24px;
-    font-weight: 100;
+    font-size: 30px;
 }
 .result-game {
-    font-size: 18px;
-    font-weight: 100;
-    color: #ebebeb;
+    font-size: 24px;
+    color: #ffee00;
+    text-shadow: 0 0 5px #ff4799;
 }
 .result-explain {
-    font-size: 13px;
-    font-weight: normal;
-    color: #ff9300;
+    width: 1000px;
+    max-width: 95%;
+    line-height: 30px;
+    font-size: 16px;
+    color: #fff;    
+    font-family: 'DungGeunMo';
+}
+
+#result-media {
+    width: 800px;
+    max-width: 95%;
+    height: auto;
+    margin: 0 auto;
+    border: 3px solid #777777;
+    background-size: cover;
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    line-height: 0;
+}
+#video {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+.reset-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.reset-cover span {
+    font-size: 24px;
+    color: #78e9fb;
+    text-shadow: 0 0 5px #00f;
+}
+
+.slider{
     width: 600px;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+.slider img {
+    width: 100%;
+    height: 100%;
 }
 /* share */
 .share {
     margin: 0 auto;
 }
+
+
+
 /* music */
+#bgm-p-s, #vol-mute{
+    width: 40px;
+    height: 40px;
+}
 .bgm-box {
-    color: red;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-
-#play-btn {
-    display: none;
-}
-
-.btn-color {
+.btn i {
     color: yellow;
 }
-
 .volume-slider {
     -webkit-appearance: none;
     background: #fff;
@@ -145,10 +223,10 @@ article {
     height: 15px;
     width: 15px;
     cursor: pointer;
-    background: #7c7c7c;
+    border: .3px solid #ccc;
+    background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
     border-radius: 50%;
-    box-shadow: -86px 0 0 80px #979797;
-    
+    box-shadow: -86px 0 0 80px #ff0;
 }
 .volume-slider::-webkit-slider-runnable-track {
     -webkit-appearance: none;
@@ -158,12 +236,5 @@ article {
     .volume-slider {
         overflow: hidden;
         -webkit-appearance: none;
-    }
-    
+    }    
 } 
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
